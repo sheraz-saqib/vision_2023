@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    font-size: 62.5%;
+    font-weight: 600;
+}
+:root {
+  --var-body: #e4e9e7;
+  --var-sideBar: #fff;
+  --var-hover-color: #4192DC;
+  --var-primary-light: #f6f5ff;
+  --var-toggle: #ddd;
+  --var-text: #707070;
+  --var-lightRed: rgba(255, 0, 0, 0.575);
+  --var-shadow: 0.2rem 0.2rem 1.4rem 0rem rgba(73, 73, 73, 0.233);
+}
+body {
+  background-color: #4192DC;
+}
+/* particals */
+/* ---- reset ---- */
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.forget-page{
+  display: flex;
+  max-width: 70rem;
+  min-height: 30rem;
+  margin-top: 20rem;
+  width: 100%;
+  height: 100%;
+}
+.left-cont{
+  background-color: #FFF;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-cont img{
+  width: 90%;
+cursor: pointer;
+width: 30rem;
+animation-name: image;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+}
+@keyframes image{
+  0%{
+    transform: scale(.99);
+  }
+  50%{
+    transform:scale(1) ;
+  }
+  100%{
+    transform: scale(.99);
+  }
+}
+.right-cont{
+  background-color: var(--var-primary-light);
+  width: 50%;
+}
+.right-cont .header{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.right-cont .header h2{
+  color: #707070;
+  font-size: 2rem;
+  font-weight: 400;
+
+}
+.input{
+  display: flex;
+  flex-direction: column;
+  margin: 0  2rem;
+  margin-top: 9rem;
+}
+.input .f-input{
+  display: flex;
+  align-items: center;
+  background-color: var(--var-sideBar);
+  margin-bottom: 2rem;
+  border-radius: .6rem;
+}
+.input .f-input i{
+  font-size: 1.5rem;
+  color: var(--var-text);
+ padding-right: 1rem;
+ cursor: pointer;
+}
+.input input{
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid var(--var-sideBar);
+  padding: 1rem ;
+ 
+}
+.login-btn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-btn a button{
+  background-color: #4192DC;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: .5rem ;
+  border-radius: .7rem;
+  cursor: pointer;
+  width: 15rem;
+  color: var(--var-sideBar);
+  transition: .4s;
+  margin-bottom: 1rem;
+  }
+  .login-btn a button:hover{
+    transform: scale(.99);
+  }
+  @media only screen and (max-width:48em){
+    .forget-page{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0   1rem;
+      margin-top: 20rem;
+    }
+    .left-cont,.right-cont{
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width:28em){
+.left-cont img{
+  width: 80%;
+  margin:2rem ;
+}
+  }

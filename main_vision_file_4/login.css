@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    font-size: 62.5%;
+    font-weight: 600;
+}
+:root {
+  --var-body: #e4e9e7;
+  --var-sideBar: #fff;
+  --var-hover-color: #4192DC;
+  --var-primary-light: #f6f5ff;
+  --var-toggle: #ddd;
+  --var-text: #707070;
+  --var-lightRed: rgba(255, 0, 0, 0.575);
+  --var-shadow: 0.2rem 0.2rem 1.4rem 0rem rgba(73, 73, 73, 0.233);
+}
+body {
+  background:linear-gradient(45deg,#1b88d1,#4192DC) ;
+  min-height: 100vh;
+}
+
+/* particals */
+/* ---- reset ---- */
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  margin-left: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  
+}
+.login-page{
+  display: flex;
+  max-width: 100rem;
+  min-height: 60rem;
+  margin-top: 5rem;
+  width: 100%;
+  height: 100%;
+ 
+  
+}
+.left-cont{
+  background-color: #FFF;
+  width: 50%;
+}
+.left-cont img{
+  width: 90%;
+margin-top: 30%;
+cursor: pointer;
+animation-name: image;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+}
+@keyframes image{
+  0%{
+    transform: scale(.99);
+  }
+  50%{
+    transform:scale(1) ;
+  }
+  100%{
+    transform: scale(.99);
+  }
+}
+.right-cont{
+  background-color: var(--var-primary-light);
+  width: 50%;
+
+}
+.right-cont .header{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.right-cont .header h2{
+  color: #707070;
+  font-size: 2rem;
+  font-weight: 400;
+
+}
+.input{
+  display: flex;
+  flex-direction: column;
+  margin: 0  5rem;
+  margin-top: 6rem;
+}
+.input .f-input{
+  display: flex;
+  align-items: center;
+  background-color: var(--var-sideBar);
+  margin-bottom: 2rem;
+  border-radius: .6rem;
+}
+.input .f-input i{
+  font-size: 1.4rem;
+  color: var(--var-text);
+ padding-right: 1rem;
+ cursor: pointer;
+}
+.input input{
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid var(--var-sideBar);
+  padding: 1rem ;
+
+  border-radius: .6rem;
+}
+
+ .check-box{
+  display: flex;
+  margin-left: 5.5rem;
+}
+.check-box h3{
+  margin-left: 0.3rem;
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.836);
+}
+.check-box input{
+  border: 1px solid rgb(252, 10, 10);
+  background-color: red;
+  color: red;
+  border-radius: 50%;
+}
+.login-btn{
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  width: 100%;
+}
+.login-btn a button{
+background-color: #4192DC;
+border: none;
+font-size: 1.5rem;
+font-weight: 500;
+padding: .5rem   5rem;
+border-radius: .7rem;
+cursor: pointer;
+width: 40rem;
+color: var(--var-sideBar);
+transition: .4s;
+overflow: hidden;
+}
+.login-btn a button:hover{
+  transform: scale(.99);
+  background-color: #4491da;
+}
+.another-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.anther-head{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.anther-head h2{
+  text-transform: uppercase;
+  color: var(--var-text);
+  font-size: 1.2rem;
+}
+.another-login a button{
+  background-color: #4192DC;
+border: none;
+font-size: 1.5rem;
+font-weight: 500;
+padding: .5rem   5rem;
+border-radius: .7rem;
+cursor: pointer;
+width: 40rem;
+color: var(--var-sideBar);
+transition: .4s;
+margin-bottom: 2rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.another-login a button i{
+  font-size: 1.7rem;
+}
+p{
+  width: 100%;
+  height: .1rem;
+  background-color: #70707049;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+.another-login .google{
+  background-color: #4192DC;
+}
+.another-login .facebook{
+  background-color: #4192DC;
+}
+.another-login .google:hover{
+  transform: scale(1.02);
+  background-color:  rgba(255, 14, 14, 0.705);
+}
+.another-login .facebook:hover{
+  transform: scale(1.02);
+  background-color: rgb(7, 120, 250);
+}
+.login-footer{
+  margin-top: 6.3rem;
+  background-color: #4192DCd8;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-ancor a{
+  font-size: 1.3rem;
+  color: #000000;
+  background-color: rgb(245, 181, 21);
+  padding: .5rem  1.5rem;
+  border-radius: 2rem;
+  transition: .4s;
+}
+.footer-ancor a:nth-child(1){
+  margin-right: 4rem;
+
+}
+.footer-ancor a:nth-child(1):hover{
+  color: rgb(7, 120, 250);
+  background-color: rgb(255, 255, 255);
+}
+.footer-ancor a:nth-child(2):hover{
+  background-color:  rgb(255, 255, 255);
+}
+@media only screen and (max-width:60em){
+  .center{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .login-page{
+    display: flex;
+    max-width: 100rem;
+    min-height: 60rem;
+    margin-top: 5rem;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .left-cont,.right-cont{
+    width: 100%;
+  }
+  .left-cont img{
+    width: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 21%;
+
+  }
+}
+@media only screen and (max-width:30em){
+  .left-cont img{
+    width: 70%;
+    margin-left: 11%;
+  }
+  .login-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  width: 100%;
+    
+  }
+  .login-btn a button{
+    width: 30rem;
+    font-size: 1.3rem;
+  }
+  .another-login a button{
+    width: 30rem;
+    font-size: 1.3rem;
+  }
+}
+@media only screen and (max-width:26em){
+  .login-footer{
+    height: 8rem;
+  }
+  .footer-ancor a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+  }
+  .footer-ancor a:nth-child(1){
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .input{
+    display: flex;
+    flex-direction: column;
+    margin: 0  2rem;
+    margin-top: 4rem;
+  }
+}
+@media only screen and (max-width:22em){
+  .login-btn a button{
+    width: 20rem;
+    font-size: 1.3rem;
+  }
+  .another-login a button{
+    width: 25rem;
+    font-size: 1.3rem;
+  }
+}

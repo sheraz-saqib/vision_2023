@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    font-size: 62.5%;
+    font-weight: 600;
+}
+:root {
+  --var-body: #e4e9e7;
+  --var-sideBar: #fff;
+  --var-hover-color: #4192DC;
+  --var-primary-light: #f6f5ff;
+  --var-toggle: #ddd;
+  --var-text: #707070;
+  --var-lightRed: rgba(255, 0, 0, 0.575);
+  --var-shadow: 0.2rem 0.2rem 1.4rem 0rem rgba(73, 73, 73, 0.233);
+}
+body {
+  background-color: #4192DC;
+}
+/* particals */
+/* ---- reset ---- */
+
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+.h-input input.error{
+  border:1px solid red;
+}
+.h-input input.success{
+  border: 1px solid rgba(15, 143, 15, 0.904);
+}
+.f-input input.error{
+  border: 1px solid red;
+}
+.f-input input.success {
+  border: 1px solid rgba(15, 143, 15, 0.904);
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+.login-page{
+  display: flex;
+  max-width: 100rem;
+  min-height: 60rem;
+  margin-top: 5rem;
+  width: 100%;
+  height: 100%;
+}
+.left-cont{
+  background-color: #FFF;
+  width: 50%;
+}
+.left-cont img{
+  width: 70%;
+  margin-left: 14%;
+margin-top: 40%;
+cursor: pointer;
+animation-name: image;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+}
+@keyframes image{
+  0%{
+    transform: scale(.99);
+  }
+  50%{
+    transform:scale(1) ;
+  }
+  100%{
+    transform: scale(.99);
+  }
+}
+.right-cont{
+  background-color: var(--var-primary-light);
+  width: 50%;
+}
+.right-cont .header{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.right-cont .header h2{
+  color: #707070;
+  font-size: 2rem;
+  font-weight: 400;
+
+}
+.input{
+  display: flex;
+  flex-direction: column;
+  margin: 0  5rem;
+  margin-top: 1rem;
+}
+.input h2{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.input .f-input{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2rem;
+  margin-bottom: 1rem;
+  border-radius: .6rem;
+}
+.input input:focus{
+    border: 1px solid rgba(0, 0, 0, 0.425);
+}
+.input .f-input i{
+  font-size: 1.4rem;
+  color: var(--var-text);
+ padding-right: 1rem;
+ cursor: pointer;
+}
+.input input{
+    background-color: var(--var-sideBar);
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--var-sideBar);
+  /* border: none; */
+  padding: 1rem ;
+  border-radius: .6rem;
+}
+.h-input{
+  margin-top: 1rem;
+margin-bottom: 2rem;
+}
+.h-input h2{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.submit-btn{
+  margin-top: 1rem;
+}
+.submit-btn #new_acc_submit{
+  width: 100% !important;
+  background-color: #4192DC !important;
+  border: none !important;
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  padding: .5rem  !important;
+  border-radius: .7rem !important;
+  cursor: pointer !important;
+  color: var(--var-sideBar) !important;
+  transition: .4s !important;
+  margin-bottom: 1rem !important;
+}
+.submit-btn  input{
+  color: var(--var-sideBar) !important;
+}
+.submit-btn  button:hover{
+  transform: scale(.99);
+}
+.phone::-webkit-inner-spin-button{
+display: none;
+}
+.phone::-webkit-outer-spin-button{
+  display: none;
+  }
+ 
+  @media only screen and (max-width:59em){
+    .login-page{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .left-cont,.right-cont{
+      width: 100%;
+    }
+    .left-cont img{
+      margin: 2rem;
+      margin-left: 13%;
+    }
+  }
+  @media only screen and (max-width:32em){
+    .input .f-input{
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      grid-template-rows: repeat(2,1fr);
+      gap: 2rem;
+      margin-bottom: 1rem;
+      border-radius: .6rem;
+    }
+    .input{
+      /* width: 100%; */
+margin:1rem;
+    }
+    .input input{
+      width: 100%;
+    }
+    .right-cont .header h2{
+      color: #707070;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 3rem;
+    
+    }
+  }
