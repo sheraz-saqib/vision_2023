@@ -3,7 +3,10 @@ session_start();
 require './php/config.php';
 
 
+ if(!isset($_SESSION['user_id'])){
+header('location:index.php');
 
+ }
 
 
 
@@ -137,7 +140,7 @@ if(mysqli_num_rows($result) > 0)
                 <div class="description"><?=$fetch_reg['reg_desc'] ?></div>
                 <div class="text"> Price per night</div>
                 <div class="price"><h4><?=$fetch_reg['reg_price'];?></h4></div>
-                <div class="rating"><button class="Explore delete">delete</button><span>4.4</span></div>
+                <div class="rating"><a class="delete_btn" href="user_del_card.php?delete_id=<?php echo $fetch_reg['regi_id']?>&page_url=user_upload_reg.php"><button class="delete">delete</button></a><a href=""><button class="update">update</button></a></div>
                 </div>
                 
             </div>
@@ -175,21 +178,8 @@ $fetch_reg_user = mysqli_fetch_assoc($reg_user_data);
 if($userLogin){
                 ?>
 
-                <div class="col-chatbox">
-                    <div class="profile-name"><img src="./user_images/<?=$fetch_reg_user['user_image']?>" alt=""><span><?=$fetch_reg_user['user_name'] .' '.$fetch_reg_user['user_last_name'] ?></span> </div>
-                    <div class="chat">
-                        <div class="customer-msg"><p>customer</p></div>
-                        <div class="customer-msg"><p>customer</p></div>
-                         <div class="seller-msg"><p>seller</p></div>
-                        <div class="customer-msg"><p>customer</p></div>
-                       
-                        <div class="seller-msg"><p>seller</p></div>
-                        <div class="seller-msg"><p>seller</p></div>
-                        <div class="seller-msg"><p>seller</p></div>
-                    </div>
-                    <div class="message-box"><input type="text" placeholder="Message"><button><i class='bx bxs-send'></i></button></div>
-                </div>
-                <div class="col-send"><button>book now</button></div>
+                
+         
             </div>
 
         </div>
@@ -221,4 +211,16 @@ if(!$userLogin){
 <script src="app.js"></script>
 <script src="./js/card_code.js"></script>
 
+
+
+<script>
+    const delete_btns = document.querySelectorAll('.delete_btn')
+
+    delete_btns.forEach(crr=>{
+        crr.addEventListener('click',()=>{
+            if(confirm('confirm delete')){
+            }else{crr.href = ''}
+        })
+    })
+</script>
 </html>
