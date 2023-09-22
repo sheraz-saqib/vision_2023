@@ -169,7 +169,7 @@ require './php/config.php';
                                 <div class="chat">
 
                                     <input class="reg_user_id" type="text" value="<?php echo $reg_user_id; ?>">
-                                    <!-- <?php
+                                    <?php
 
                                             $user_id = $_SESSION['user_id'];
                                             $select_messQ = "SELECT * FROM `message_list` WHERE mess_reciever_id= $reg_user_id AND mess_user_id = $user_id OR mess_reciever_id= $user_id AND mess_user_id = $reg_user_id";
@@ -184,7 +184,7 @@ require './php/config.php';
                                                     }
                                                 }
                                             }
-                                            ?> -->
+                                            ?> 
 
 
                                     <!-- <div class="customer-msg"><p>customer</p></div> -->
@@ -282,40 +282,40 @@ require './php/config.php';
 
 
 
-    const reg_user_id = document.querySelectorAll('.reg_user_id');
-    reg_user_id.forEach(crr => {
-        let crr_reg_id = crr.value
-        console.log(crr_reg_id);
-        let xhr = new XMLHttpRequest()
-        setInterval(() => {
+    // const reg_user_id = document.querySelectorAll('.reg_user_id');
+    // reg_user_id.forEach(crr => {
+    //     let crr_reg_id = crr.value
+    //     console.log(crr_reg_id);
+    //     let xhr = new XMLHttpRequest()
+    //     setInterval(() => {
 
 
 
-            message_forms.forEach(crr => {
-                let crr_seller = crr.querySelector('.seller_id').value;
-                crr.addEventListener('submit', e => {
-                    e.preventDefault()
-                })
+    //         message_forms.forEach(crr => {
+    //             let crr_seller = crr.querySelector('.seller_id').value;
+    //             crr.addEventListener('submit', e => {
+    //                 e.preventDefault()
+    //             })
 
 
 
-                xhr.open('GET', './php/get_message.php?reg_user_id=' + crr_reg_id, true)
-                xhr.onload = () => {
-                    if (xhr.status == 200 && XMLHttpRequest.DONE) {
-                        chat_box.forEach(crr => {
-                            crr.innerHTML = xhr.responseText;
-                        })
+    //             xhr.open('GET', './php/get_message.php?reg_user_id=' + crr_reg_id, true)
+    //             xhr.onload = () => {
+    //                 if (xhr.status == 200 && XMLHttpRequest.DONE) {
+    //                     chat_box.forEach(crr => {
+    //                         crr.innerHTML = xhr.responseText;
+    //                     })
 
-                    }
-                }
-                let form_data = new FormData(crr);
-                xhr.send(form_data)
+    //                 }
+    //             }
+    //             let form_data = new FormData(crr);
+    //             xhr.send(form_data)
 
-            })
-        }, 500)
+    //         })
+    //     }, 500)
 
 
-    })
+    // })
 </script>
 
 </html>
