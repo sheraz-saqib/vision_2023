@@ -28,7 +28,7 @@
 
      }
 
-     .chat .chat .chat .login_btn {
+      .login_btn {
          background-color: #4192DC;
          color: white;
          padding: .5rem 1rem;

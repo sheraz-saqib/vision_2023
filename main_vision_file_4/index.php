@@ -73,7 +73,6 @@ require './php/config.php';
 
 
         $result = mysqli_query($conn, $queryQ);
-
         if (mysqli_num_rows($result) > 0) {
             while ($fetch_reg = mysqli_fetch_assoc($result)) {
                 $i += 1;
@@ -150,7 +149,7 @@ require './php/config.php';
                                 <tr>
                                     <td><b>Pulish-date</b></td>
                                     <td><b>Location</b></td>
-                                    <td><b>Guest Range</b< /td>
+                                    <td><b>Guest Range</b></td>
                                     <td><b>Categories</b></td>
                                 </tr>
                                 <tr>
@@ -169,27 +168,23 @@ require './php/config.php';
                                 <div class="profile-name"><img src="./user_images/<?= $fetch_reg_user['user_image'] ?>" alt=""><span><?= $fetch_reg_user['user_name'] . ' ' . $fetch_reg_user['user_last_name'] ?></span> </div>
                                 <div class="chat">
 
+                                    <input class="reg_user_id" type="text" value="<?php echo $reg_user_id; ?>">
+                                    <!-- <?php
 
-<?php
-
-        $user_id = $_SESSION['user_id'];
-        $select_messQ = "SELECT * FROM `message_list` WHERE mess_reciever_id= $reg_user_id AND mess_user_id = $user_id OR mess_reciever_id= $user_id AND mess_user_id = $reg_user_id";
-        $select_mess = mysqli_query($conn, $select_messQ);
-
-        if (mysqli_num_rows($select_mess) > 0) {
-
-            while ($message = mysqli_fetch_assoc($select_mess)
-            ) {
-
-                if ($message['mess_user_id'] == $user_id) {
-                    echo ' <div class="seller-msg"><p>' . $message['mesaage_text'] . '</p></div>';
-                }
-                  if($message['mess_user_id'] == $reg_user_id){
-                    echo ' <div class="customer-msg"><p>' . $message['mesaage_text'] . '</p></div>';
-                }
-            }
-        }
-?>
+                                            $user_id = $_SESSION['user_id'];
+                                            $select_messQ = "SELECT * FROM `message_list` WHERE mess_reciever_id= $reg_user_id AND mess_user_id = $user_id OR mess_reciever_id= $user_id AND mess_user_id = $reg_user_id";
+                                            $select_mess = mysqli_query($conn, $select_messQ);
+                                            if (mysqli_num_rows($select_mess) > 0) {
+                                                while ($message = mysqli_fetch_assoc($select_mess)) {
+                                                    if ($message['mess_user_id'] == $user_id) {
+                                                        echo ' <div class="seller-msg"><p>' . $message['mesaage_text'] . '</p></div>';
+                                                    }
+                                                    if ($message['mess_user_id'] == $reg_user_id) {
+                                                        echo ' <div class="customer-msg"><p>' . $message['mesaage_text'] . '</p></div>';
+                                                    }
+                                                }
+                                            }
+                                            ?> -->
 
 
                                     <!-- <div class="customer-msg"><p>customer</p></div> -->
@@ -202,7 +197,7 @@ require './php/config.php';
                                 </div>
                                 <form action="" class="message_form">
                                     <div class="message-box">
-                                        <input name="seller_id" type="number" value="<?php echo $reg_user_id ?>" hidden>
+                                        <input class="seller_id" name="seller_id" type="number" value="<?php echo $reg_user_id ?>" hidden>
                                         <input name="user_id" type="number" value="<?php echo $_SESSION['user_id'] ?>" hidden>
                                         <input type="text" name="message_text" placeholder="Message">
                                         <button class="message_send_btn"><i class='bx bxs-send'></i></button>
@@ -275,41 +270,52 @@ require './php/config.php';
     })
 
 
-    // setInterval(() => {
-
-
-
-    //     message_forms.forEach(crr => {
-    //         crr.addEventListener('submit', e => {
-    //             e.preventDefault()
-    //         })
-
-    //         let xhr = new XMLHttpRequest()
-    //         xhr.open('POST', './php/get_message.php', true)
-    //         xhr.onload = () => {
-    //             if (xhr.status == 200 && XMLHttpRequest.DONE) {
-    //                 chat_box.forEach(crr => {
-    //                     crr.innerHTML = xhr.responseText;
-
-
-    //                 })
-
-    //             }
-    //         }
-
-    //         let form_data = new FormData(crr);
-    //         xhr.send(form_data)
-
-
-
-
-    //     })
 
 
 
 
 
-    // }, 500)
+
+
+
+
+
+
+
+    const reg_user_id = document.querySelectorAll('.reg_user_id');
+    reg_user_id.forEach(crr => {
+        let crr_reg_id = crr.value
+        console.log(crr_reg_id);
+        let xhr = new XMLHttpRequest()
+        setInterval(() => {
+
+
+
+            message_forms.forEach(crr => {
+                let crr_seller = crr.querySelector('.seller_id').value;
+                crr.addEventListener('submit', e => {
+                    e.preventDefault()
+                })
+
+
+
+                xhr.open('GET', './php/get_message.php?reg_user_id=' + crr_reg_id, true)
+                xhr.onload = () => {
+                    if (xhr.status == 200 && XMLHttpRequest.DONE) {
+                        chat_box.forEach(crr => {
+                            crr.innerHTML = xhr.responseText;
+                        })
+
+                    }
+                }
+                let form_data = new FormData(crr);
+                xhr.send(form_data)
+
+            })
+        }, 500)
+
+
+    })
 </script>
 
 </html>
